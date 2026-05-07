@@ -30,7 +30,7 @@ static void echo_task(void *arg)
     const int uart_buffer_size = (1024*2);
     QueueHandle_t uart_queue;
     ESP_ERROR_CHECK(uart_driver_install(UART_NUM_2, uart_buffer_size, \
-                                            uart_buffer_size, 10, &uart_queue, 0));  // ✅ Fixed macro
+                                            uart_buffer_size, pdMS_TO_TICKS(10), &uart_queue, 0));  // ✅ Fixed macro
     
     
     uint8_t data[128];
